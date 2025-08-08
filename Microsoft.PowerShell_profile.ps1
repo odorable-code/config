@@ -28,10 +28,15 @@ function .. {
 function New-BalloonNotification {
 
     Param(
-        [Parameter(ValueFromPipeline = $true, mandatory = $true)][String]$Title,
-        [Parameter(ValueFromPipeline = $true, mandatory = $true)][String]$Message, 
-        [Parameter(ValueFromPipeline = $true, mandatory = $false)][ValidateSet('None', 'Info', 'Warning', 'Error')][String]$Icon = "Info",
-        [Parameter(ValueFromPipeline = $true, mandatory = $false)][scriptblock]$Script
+        [Parameter(ValueFromPipeline = $true, mandatory = $true)]
+        [String] $Title,
+        [Parameter(ValueFromPipeline = $true, mandatory = $true)]
+        [String] $Message, 
+        [Parameter(ValueFromPipeline = $true, mandatory = $false)]
+        [ValidateSet('None', 'Info', 'Warning', 'Error')]
+        [String] $Icon = "Info",
+        [Parameter(ValueFromPipeline = $true, mandatory = $false)]
+        [scriptblock] $Script
     )
 
     Add-Type -AssemblyName System.Windows.Forms
@@ -49,10 +54,10 @@ function New-BalloonNotification {
     }
     catch {}
 
-    $tip.ShowBalloonTip(10000) # Even if we set it for 1000 milliseconds, it usually follows OS minimum 10 seconds
+    $tip.ShowBalloonTip(10000) # 10secs
 
     Start-Sleep -seconds 1
-    $tip.Dispose() # Important to dispose otherwise the icon stays in notifications till reboot
+    $tip.Dispose()
 
-    Get-EventSubscriber -SourceIdentifier "BalloonClicked_event"  -ErrorAction SilentlyContinue | Unregister-Event # In case if the Event Subscription is not disposed
+    Get-EventSubscriber -SourceIdentifier "BalloonClicked_event"  -ErrorAction SilentlyContinue | Unregister-Event
 }
