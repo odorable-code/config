@@ -49,6 +49,17 @@ settings.theme = `
 }`;
 // click `Save` button to make above settings to take effect.</ctrl-i></ctrl-y>
 
+api.mapkey("[[", 'Move Previous Page', function() {
+    const activeNum = document.querySelector('.btn_num.active');
+    activeNum.previousElementSibling?.click();
+}, {domain: /bbs\.ruliweb\.com/i});
+
+api.mapkey("]]", 'Move Next Page', function() {
+    const activeNum = document.querySelector('.btn_num.active');
+    activeNum.nextElementSibling?.click();
+}, {domain: /bbs\.ruliweb\.com/i});
+
+
 api.aceVimMap('ZZ', ':wq', 'normal');
 api.aceVimMap('ZQ', ':q!', 'normal');
 
