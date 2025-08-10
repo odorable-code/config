@@ -49,36 +49,40 @@ settings.theme = `
 }`;
 // click `Save` button to make above settings to take effect.</ctrl-i></ctrl-y>
 
+$$ = function (cssSelector, dom=document) {
+    return dom.querySelectorAll(cssSelector);
+}
+
+$ = function (cssSelector, dom=document) {
+    return dom.querySelector(cssSelector);
+}
+
 api.mapkey("[[", 'Move To Previous Page', function() {
-    const activeNum = document.querySelector('.btn_num.active');
-    activeNum.previousElementSibling?.click();
+    $('.btn_num.active').previousElementSibling?.click();
 }, {domain:/bbs\.ruliweb\.com/i});
 
 api.mapkey("]]", 'Move To Next Page', function() {
-    const activeNum = document.querySelector('.btn_num.active');
-    activeNum.nextElementSibling?.click();
+    $('.btn_num.active').nextElementSibling?.click();
 }, {domain:/bbs\.ruliweb\.com/i});
 
 api.mapkey(']]', 'Move To Next Video', function() {
-    const nextButton = document.querySelector('.ytp-next-button');
-    nextButton?.click();
+    $('.ytp-next-button')?.click();
 }, {domain:/youtube\.com\/watch/i});
 
 api.mapkey('[[', 'Move To Previous Video', function() {
-    const prevButton = document.querySelector('.ytp-prev-button');
-    prevButton?.click();
+    $('.ytp-prev-button')?.click();
 }, {domain:/youtube\.com\/watch/i});
 
 api.mapkey('/', 'Search Keyword', function() {
-    document.querySelector('.yt-searchbox-input')?.focus();
+    $('.yt-searchbox-input')?.focus();
 }, {domain:/youtube\.com/});
 
 api.mapkey('[[', 'Move To Previous Page', function() {
-    document.querySelector('#pnprev')?.click();
+    $('#pnprev')?.click();
 }, {domain:/google\.com\/search/i});
 
 api.mapkey(']]', 'Move To Next Page', function() {
-    document.querySelector('#pnnext')?.click();
+    $('#pnnext')?.click();
 }, {domain:/google\.com\/search/i});
 
 api.aceVimMap('ZZ', ':wq', 'normal');
