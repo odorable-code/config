@@ -52,21 +52,37 @@ settings.theme = `
 api.mapkey("[[", 'Move To Previous Page', function() {
     const activeNum = document.querySelector('.btn_num.active');
     activeNum.previousElementSibling?.click();
-}, {domain: /bbs\.ruliweb\.com/i});
+}, {domain:/bbs\.ruliweb\.com/i});
 
 api.mapkey("]]", 'Move To Next Page', function() {
     const activeNum = document.querySelector('.btn_num.active');
     activeNum.nextElementSibling?.click();
-}, {domain: /bbs\.ruliweb\.com/i});
+}, {domain:/bbs\.ruliweb\.com/i});
 
 api.mapkey(']]', 'Move To Next Video', function() {
     const nextButton = document.querySelector('.ytp-next-button');
     nextButton?.click();
-}, {domain: /youtube\.com\/watch/i});
+}, {domain:/youtube\.com\/watch/i});
+
+api.mapkey('[[', 'Move To Previous Video', function() {
+    const prevButton = document.querySelector('.ytp-prev-button');
+    prevButton?.click();
+}, {domain:/youtube\.com\/watch/i});
+
+api.mapkey('/', 'Search Keyword', function() {
+    document.querySelector('.yt-searchbox-input')?.focus();
+}, {domain:/youtube\.com/});
+
+api.mapkey('[[', 'Move To Previous Page', function() {
+    document.querySelector('#pnprev')?.click();
+}, {domain:/google\.com\/search/i});
+
+api.mapkey(']]', 'Move To Next Page', function() {
+    document.querySelector('#pnnext')?.click();
+}, {domain:/google\.com\/search/i});
 
 api.aceVimMap('ZZ', ':wq', 'normal');
 api.aceVimMap('ZQ', ':q!', 'normal');
-
 
 api.addSearchAlias('al', 'AliExpress', 'https://ko.aliexpress.com/w/wholesale-{0}.html?spm=a2g0o.best.search.0', 's');
 api.addSearchAlias('c', 'Coupang', 'https://www.coupang.com/np/search?component=&q={0}&channel=user', 's');
