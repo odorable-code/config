@@ -1,0 +1,24 @@
+{ 
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "w"],
+            "commands": [":write"]
+        },
+        {
+            "before": ["<leader>", "h"],
+            "commands": [":nohl"]
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false,
+        "<C-k>": false,
+        "<C-h>": false
+    },
+    "vim.autoSwitchInputMethod.enable": true,
+    "vim.autoSwitchInputMethod.defaultIM": "1033",
+    "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\im-select.exe",
+    "vim.autoSwitchInputMethod.switchIMCmd": "C:\\im-select.exe {im}"
+}

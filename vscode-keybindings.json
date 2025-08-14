@@ -1,0 +1,7 @@
+// Place your key bindings in this file to override the defaults
+[
+    { "key": "ctrl+k x",    "command": "workbench.view.extensions",
+                            "when": "viewContainer.workbench.view.extensions.enabled" },
+    { "key": "ctrl+k b",    "command": "workbench.action.toggleSidebarVisibility" },
+    { "key": "ctrl+k j",    "command": "workbench.action.togglePanel" },
+]

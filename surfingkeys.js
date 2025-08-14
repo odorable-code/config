@@ -49,11 +49,11 @@ settings.theme = `
 }`;
 // click `Save` button to make above settings to take effect.</ctrl-i></ctrl-y>
 
-$$ = function (cssSelector, dom=document) {
-    return dom.querySelectorAll(cssSelector);
+const $$ = function (cssSelector, dom=document) {
+    return Array.from(dom.querySelectorAll(cssSelector));
 }
 
-$ = function (cssSelector, dom=document) {
+const $ = function (cssSelector, dom=document) {
     return dom.querySelector(cssSelector);
 }
 
@@ -73,10 +73,6 @@ api.mapkey('[[', 'Move To Previous Video', function() {
     $('.ytp-prev-button')?.click();
 }, {domain:/youtube\.com\/watch/i});
 
-api.mapkey('/', 'Search Keyword', function() {
-    $('.yt-searchbox-input')?.focus();
-}, {domain:/youtube\.com/});
-
 api.mapkey('[[', 'Move To Previous Page', function() {
     $('#pnprev')?.click();
 }, {domain:/google\.com\/search/i});
@@ -84,6 +80,28 @@ api.mapkey('[[', 'Move To Previous Page', function() {
 api.mapkey(']]', 'Move To Next Page', function() {
     $('#pnnext')?.click();
 }, {domain:/google\.com\/search/i});
+
+api.mapkey('[[', 'Move To Prev Page', function() {
+    $('a[class^="Pagination_prevBtn"]')?.click();
+}, {domain:/www\.coupang\.com\/np\/search/i});
+
+api.mapkey(']]', 'Move To Next Page', function() {
+    $('a[class^="Pagination_nextBtn"]')?.click();
+}, {domain:/www\.coupang\.com\/np\/search/i});
+
+api.mapkey('[[', 'Move To Prev Page', function() {
+    $('ul.ed.pagination.pagewide>.active>a')
+        ?.parentElement
+        .previousElementSibling?.querySelector('a')
+        .click();
+}, {domain:/dogdrip\.net/i});
+
+api.mapkey(']]', 'Move To Next Page', function() {
+    $('ul.ed.pagination.pagewide>.active>a')
+        ?.parentElement
+        .nextElementSibling?.querySelector('a')
+        .click();
+}, {domain:/dogdrip\.net/i});
 
 api.aceVimMap('ZZ', ':wq', 'normal');
 api.aceVimMap('ZQ', ':q!', 'normal');
