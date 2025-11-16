@@ -1,3 +1,6 @@
+Import-Module Powerline
+Set-PowerLinePrompt -SetCurrentDirectory -RestoreVirtualTerminal -Newline -Timestamp -Colors "#FFDD00", "#FF6600"
+
 Set-PSReadLineKeyHandler -Chord Ctrl+d -Function DeleteCharOrExit
 Set-PSReadLineKeyHandler -Chord Ctrl+a -Function BeginningOfLine
 Set-PSReadLineKeyHandler -Chord Ctrl+e -Function EndOfLine
@@ -24,9 +27,7 @@ function .. {
 	catch { return }
 }
 
-
 function New-BalloonNotification {
-
     Param(
         [Parameter(ValueFromPipeline = $true, mandatory = $true)]
         [String] $Title,
