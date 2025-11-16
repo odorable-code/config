@@ -91,17 +91,29 @@ api.mapkey(']]', 'Move To Next Page', function() {
 
 api.mapkey('[[', 'Move To Prev Page', function() {
     $('ul.ed.pagination.pagewide>.active>a')
-        ?.parentElement
-        .previousElementSibling?.querySelector('a')
-        .click();
+        ?.parentElement.previousElementSibling?.querySelector('a').click();
 }, {domain:/dogdrip\.net/i});
 
 api.mapkey(']]', 'Move To Next Page', function() {
     $('ul.ed.pagination.pagewide>.active>a')
-        ?.parentElement
-        .nextElementSibling?.querySelector('a')
-        .click();
+        ?.parentElement.nextElementSibling?.querySelector('a').click();
 }, {domain:/dogdrip\.net/i});
+
+api.mapkey('[[', 'Move To Prev Page', function() {
+    $('.page>strong').previousElementSibling?.click();
+}, {domain:/mlbpark\.donga\.com\/mp/i});
+
+api.mapkey(']]', 'Move To Next Page', function() {
+    $('.page>strong').nextElementSibling?.click();
+}, {domain:/mlbpark\.donga\.com\/mp/i});
+
+api.mapkey('[[', 'Move To Prev List', function() {
+    $('.num.now_on').previousElementSibling?.click();
+}, {domain:/prod\.danawa\.com\/list\//i});
+
+api.mapkey(']]', 'Move To Next List', function() {
+    $('.num.now_on').nextElementSibling?.click();
+}, {domain:/prod\.danawa\.com\/list\//i});
 
 api.aceVimMap('ZZ', ':wq', 'normal');
 api.aceVimMap('ZQ', ':q!', 'normal');
