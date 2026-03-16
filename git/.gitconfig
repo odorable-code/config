@@ -1,0 +1,18 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = voidkknd17
+	email = voidkknd17@gmail.com
+[gui]
+	recentrepo = C:/Users/hi6/Documents/lecture
+	recentrepo = C:/Users/hi6/Desktop/configv
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	cm = commit -m
+	a = add .
+	lg = log --graph --oneline --all

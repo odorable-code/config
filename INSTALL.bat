@@ -12,7 +12,8 @@ MKLINK "%USERPROFILE%\Documents\WindowsPowerShell\%POSH_PROFILE%" "%~dp0\powersh
 
 REM vim
 IF NOT EXIST "%LOCALAPPDATA%\nvim" ( MKDIR "%LOCALAPPDATA%\nvim" )
-DEL "%LOCALAPPDATA%\nvim\init.vim" 
+DEL "%LOCALAPPDATA%\nvim\init.vim"
+DEL "%USERPROFILE%\.ideavimrc"
 MKLINK "%LOCALAPPDATA%\nvim\init.vim" "%~dp0\neovim\neovim.vim"
 MKLINK "%USERPROFILE%\.ideavimrc" "%~dp0\neovim\neovim.vim"
 
@@ -27,5 +28,16 @@ COPY %~dp0\vscode\%IM_SELECT% C:\%IM_SELECT%
 REM surfingkeys
 DEL "%USERPROFILE%\surfingkeys.js"
 MKLINK "%USERPROFILE%\surfingkeys.js" "%~dp0\surfingkeys\surfingkeys.js"
+
+REM git
+DEL "%USERPROFILE%\.gitconfig"
+MKLINK "%USERPROFILE%\.gitconfig" "%~dp0\git\.gitconfig"
+
+REM keypirinha
+FOR %%a in (%~dp0\keypirinha\*.ini) do (
+	DEL "%APPDATA%\Keypirinha\User\%%~nxa"
+	MKLINK "%APPDATA%\Keypirinha\User\%%~nxa" "%%a"
+)
+
 
 PAUSE
