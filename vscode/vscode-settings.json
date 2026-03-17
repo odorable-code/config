@@ -10,6 +10,12 @@
             "commands": [":nohl"]
         }
     ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Escape>"]
+        }
+    ],
     "vim.handleKeys": {
         "<C-d>": true,
         "<C-s>": false,
