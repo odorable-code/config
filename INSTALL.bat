@@ -5,15 +5,15 @@ SET POSH_NAME=powershell.ps1
 SET IM_SELECT=im-select.exe
 
 REM posh
-DEL "%USERPROFILE%\Documents\PowerShell\%POSH_PROFILE%" 
-DEL "%USERPROFILE%\Documents\WindowsPowerShell\%POSH_PROFILE%" 
+MOVE /Y "%USERPROFILE%\Documents\PowerShell\%POSH_PROFILE%" "%USERPROFILE%\Documents\PowerShell\%POSH_PROFILE%.bak"
+MOVE /Y "%USERPROFILE%\Documents\WindowsPowerShell\%POSH_PROFILE%" "%USERPROFILE%\Documents\WindowsPowerShell\%POSH_PROFILE%.bak" 
 MKLINK "%USERPROFILE%\Documents\PowerShell\%POSH_PROFILE%" "%~dp0\powershell\%POSH_NAME%"
 MKLINK "%USERPROFILE%\Documents\WindowsPowerShell\%POSH_PROFILE%" "%~dp0\powershell\%POSH_NAME%"
 
 REM vim
 IF NOT EXIST "%LOCALAPPDATA%\nvim" ( MKDIR "%LOCALAPPDATA%\nvim" )
-DEL "%LOCALAPPDATA%\nvim\init.vim"
-DEL "%USERPROFILE%\.ideavimrc"
+MOVE /Y "%LOCALAPPDATA%\nvim\init.vim" "%LOCALAPPDATA%\nvim\init.vim.bak"
+MOVE /Y "%USERPROFILE%\.ideavimrc" "%USERPROFILE%\.ideavimrc.bak"
 MKLINK "%LOCALAPPDATA%\nvim\init.vim" "%~dp0\neovim\neovim.vim"
 MKLINK "%USERPROFILE%\.ideavimrc" "%~dp0\neovim\neovim.vim"
 
@@ -39,5 +39,9 @@ FOR %%a in (%~dp0\keypirinha\*.ini) do (
 	MKLINK "%APPDATA%\Keypirinha\User\%%~nxa" "%%a"
 )
 
-
+REM autohotkey
+FOR %%h in (%~dp0\autohotkey\*.ahk) do (
+	DEL "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\%%~nxh"
+	MKLINK "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\%%~nxh" "%%h"
+)
 PAUSE
