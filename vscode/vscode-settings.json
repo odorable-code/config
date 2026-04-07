@@ -17,12 +17,11 @@
         {
             "before": ["<leader>", "n"],
             "commands": ["workbench.files.action.focusFilesExplorer"],
-        }
+        },
         {   
             "before": ["ctrl+k", "n"],
             "commands": ["workbench.files.action.focusFilesExplorer"],
         }
-        },
     ],
     "vim.insertModeKeyBindings": [
         {
@@ -42,7 +41,7 @@
     "vim.autoSwitchInputMethod.defaultIM": "1033",
     "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\im-select.exe",
     "vim.autoSwitchInputMethod.switchIMCmd": "C:\\im-select.exe {im}",
-    "workbench.colorTheme": "Vue Theme",
+    "workbench.colorTheme": "Solarized Dark",
     "jupyter.askForKernelRestart": false,
     "terminal.integrated.defaultProfile.windows": "Windows PowerShell" ,
 }  

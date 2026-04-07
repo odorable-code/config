@@ -6,10 +6,6 @@
 [user]
 	name = voidkknd17
 	email = voidkknd17@gmail.com
-[gui]
-	recentrepo = C:/Users/hi6/Documents/lecture
-	recentrepo = C:/Users/hi6/Desktop/configv
-	recentrepo = C:/Users/hi6/Desktop/matey
 [alias]
 	st = status
 	co = checkout

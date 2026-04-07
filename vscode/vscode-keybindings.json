@@ -16,5 +16,13 @@
         "key": "alt+enter",
         "command": "python.execInTerminal-icon",
         "when": "editorTextFocus && editorLangId == 'python'"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "editor.action.clipboardPasteAction"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "-editor.action.clipboardPasteAction"
     }
 ]
